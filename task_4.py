@@ -31,6 +31,15 @@ def time_function():
 print(time_function())
 
 # 3. Кафе работает 5 дней в неделю. В конце недели надо составить отчёт по кол-ву клиентов и покупок.
+def error_decor(f):
+    def wrapper(*args, **kwargs):
+        try:
+            print(f(*args, **kwargs))
+        except Exception as e:
+            print(e)
+    return wrapper
+
+@error_decor
 def week_report_func():
     customers_number = 0
     cofee_cup_number = 0
@@ -39,15 +48,21 @@ def week_report_func():
         ashats = list(coffee_time_dict.values())
         customers_number += len(ashats)
         cofee_cup_number += sum(ashats)
+        print(sum(ashats))
+        if sum(ashats) < 20:
+            print (1/0)
     print(f"За неделю было {customers_number} покупателей. Куплено {cofee_cup_number} кофе.")
 
 week_report_func()
+
+
 
 # """Дополнительные задачи"""
 
 # 4. Нужно посмотреть, в какое время дня у баристы были перерывы в работе.
 # Для этого, нужно взять все покупки за каждый день, сравнить время между ними и отобразить промежутки больше часа.
 #добавить с учетом начала и конца работы
+
 
 def check_barista_function():
     coffee_time_dict = time_function()
@@ -63,8 +78,13 @@ def check_barista_function():
 
 
 
+
+
+
 # 5. После перерасчёта оказалось, что для окупаемости, каждый день в кафе должно продаваться не меньше 20 чашек кофе.
 # Надо написать декоратор, который будет проверять кол-во чашек кофе на каждый день. И если их было меньше 20,
 # возвращать сообщение с ошибкой (подсказка: try/except).
+
+
 
 
