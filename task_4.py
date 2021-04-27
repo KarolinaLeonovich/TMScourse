@@ -4,11 +4,10 @@
 # 1. Каждый день в кафе заходит от 5 до 20 покупателей. Каждый покупатель берёт от 1 до 3 чашек кофе.
 # Нужно написать функцию, которая будет генерировать тестовые данные при каждом вызове.
 
-
+import random
 
 
 def order_function():
-    import random
     customers_number = random.randrange(5, 21)
     coffee_list = [random.randrange(1, 4) for every_customer in range(customers_number)]
     return coffee_list
@@ -29,12 +28,20 @@ def time_function():
         times_list.sort()
     return dict(zip(times_list, coffee_list))
 
+print(time_function())
+
 # 3. Кафе работает 5 дней в неделю. В конце недели надо составить отчёт по кол-ву клиентов и покупок.
 def week_report_func():
-    coffee_time_dict = time_function()
-    ashats = list(coffee_time_dict.values())
-    print(f"За неделю было {len(ashats)} покупателей. Куплено {sum(ashats)} кофе.")
+    customers_number = 0
+    cofee_cup_number = 0
+    for i in range(5):
+        coffee_time_dict = time_function()
+        ashats = list(coffee_time_dict.values())
+        customers_number += len(ashats)
+        cofee_cup_number += sum(ashats)
+    print(f"За неделю было {customers_number} покупателей. Куплено {cofee_cup_number} кофе.")
 
+week_report_func()
 
 # """Дополнительные задачи"""
 
