@@ -5,7 +5,7 @@
 # Нужно написать функцию, которая будет генерировать тестовые данные при каждом вызове.
 
 import random
-
+from datetime import date
 
 def order_function():
     customers_number = random.randrange(5, 21)
@@ -24,7 +24,8 @@ def time_function():
     for every_custom in coffee_list:
         hours = random.randrange(9, 21)
         minutes = random.randrange(0, 60)
-        times_list.append((hours, minutes))
+        date_today = str(date.today())
+        times_list.append((hours, minutes, date_today))
         times_list.sort()
     return dict(zip(times_list, coffee_list))
 
@@ -75,9 +76,6 @@ def check_barista_function():
         break_time = min1 - min2
         if break_time > 60:
             print(f"Обратите внимание! Промежуток между {time_list[each_ashat_number][0]}:{time_list[each_ashat_number][1]} и {time_list[each_ashat_number+1][0]}:{time_list[each_ashat_number+1][1]} - {break_time//60} часов {break_time%60} минут!")
-
-
-
 
 
 
