@@ -57,19 +57,31 @@ class Room():
         self.temp_string1 = ""
         for k, v in self.bedroom.items():
             if v:
-                self.temp_string1 = self.temp_string1.join([k, " - ", str(v), " "])
+                self.temp_string1 += k
+                self.temp_string1 += " - "
+                self.temp_string1 += str(v)
+                self.temp_string1 += "\n"
         self.temp_string2 = ""
         for k, v in self.bathroom.items():
             if v:
-                self.temp_string2 = self.temp_string2.join([k, " - ", str(v), " "])
+                self.temp_string2 += k
+                self.temp_string2 += " - "
+                self.temp_string2 += str(v)
+                self.temp_string2 += "\n"
         self.temp_string3 = ""
         for k, v in self.living_room.items():
             if v:
-                self.temp_string3 = self.temp_string3.join([k, " - ", str(v), " "])
+                self.temp_string3 += k
+                self.temp_string3 += " - "
+                self.temp_string3 += str(v)
+                self.temp_string3 += "\n"
         self.temp_string4 = ""
         for k, v in self.additionally_provided.items():
             if v:
-                self.temp_string4 = self.temp_string4.join([k, " - ", str(v), " "])
+                self.temp_string4 += k
+                self.temp_string4 += " - "
+                self.temp_string4 += str(v)
+                self.temp_string4 += "\n"
         if self.number_of_rooms == 1:
             return f'This apartment has a nice bedroom.\nYou can find:\n{self.temp_string1} \nAdditionnaly we provide: {self.temp_string4}'
         elif self.number_of_rooms == 2:
